@@ -1,5 +1,6 @@
 import os
 import mlflow
+import mlflow.sklearn
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -7,7 +8,7 @@ from sklearn.model_selection import train_test_split
 CSV_PATH = os.getenv("CSV_PATH", "medical_insurance_preprocessed.csv")
 TARGET = os.getenv("TARGET_VAR", "charges")
 
-mlflow.autolog(registered_model_name="medical_insurance_model")
+mlflow.autolog()
 
 df = pd.read_csv(CSV_PATH)
 
@@ -18,7 +19,13 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-model = LinearRegression()
-model.fit(X_train, y_train)
+with mlflow.start_run():
+    model = LinearRegression()
+    model.fit(X_train, y_train)
 
-print("Training completed")
+    mlflow.sklearn.log_model(
+        sk_model=model,
+        artifact_path="model",
+        registered_model_name="medical_insurance_model"
+    )
+
