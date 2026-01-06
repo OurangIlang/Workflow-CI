@@ -1,4 +1,4 @@
-name: insurance-env
+name: mlflow-env
 channels:
   - defaults
 dependencies:
@@ -8,4 +8,3 @@ dependencies:
       - mlflow
       - pandas
       - scikit-learn
-      - numpy

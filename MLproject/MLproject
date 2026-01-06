@@ -1,4 +1,4 @@
-name: medical-insurance-project
+name: medical-insurance
 
 conda_env: conda.yaml
 
