@@ -12,6 +12,9 @@ mlflow.autolog()
 
 df = pd.read_csv(CSV_PATH)
 
+
+df = pd.get_dummies(df, drop_first=True)
+
 X = df.drop(TARGET, axis=1)
 y = df[TARGET]
 
@@ -24,9 +27,7 @@ with mlflow.start_run():
     model.fit(X_train, y_train)
 
     mlflow.sklearn.log_model(
-        sk_model=model,
+        model,
         artifact_path="model",
         registered_model_name="medical_insurance_model"
     )
-
-
