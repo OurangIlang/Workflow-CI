@@ -1,3 +1,4 @@
+name: mlflow-env
 channels:
 - conda-forge
 dependencies:
