@@ -29,3 +29,4 @@ with mlflow.start_run():
         registered_model_name="medical_insurance_model"
     )
 
+
