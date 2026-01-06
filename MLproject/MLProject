@@ -1,4 +1,4 @@
-name: medical-insurance-workflow-ci
+name: medical-insurance-project
 
 conda_env: conda.yaml
 
