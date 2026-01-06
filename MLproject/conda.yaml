@@ -1,15 +1,11 @@
-name: medical-insurance-env
-
+name: insurance-env
 channels:
   - defaults
-  - conda-forge
-
 dependencies:
   - python=3.10
   - pip
   - pip:
       - mlflow
       - pandas
-      - numpy
       - scikit-learn
-      - matplotlib
+      - numpy

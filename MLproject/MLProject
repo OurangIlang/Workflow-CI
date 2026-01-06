@@ -1,4 +1,4 @@
-name: medical-insurance-project
+name: insurance-mlflow-project
 
 conda_env: conda.yaml
 
